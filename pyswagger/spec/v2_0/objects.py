@@ -31,6 +31,7 @@ class BaseSchema(BaseObj_v2_0):
         ('enum', None),
         ('pattern', None),
         ('uniqueItems', None),
+        ('description', None),
     ]
 
     def __init__(self, ctx):
