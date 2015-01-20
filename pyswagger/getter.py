@@ -87,11 +87,13 @@ class LocalGetter(Getter):
             raise ValueError('Unable to locate resource file: [{0}]'.format(path))
 
     def load(self, path):
+        import sys
         ret = None
         # make sure we get .json files
         if not path.endswith(const.RESOURCE_FILE_EXT):
             path = path + '.' + const.RESOURCE_FILE_EXT
-
+        if sys.platform == "win32" and path[0] == "/":
+            path = path[1:]
         with open(path, 'r') as f:
             ret = f.read()
 
