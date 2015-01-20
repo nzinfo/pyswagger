@@ -157,6 +157,7 @@ class Response(six.with_metaclass(FieldMeta, BaseObj_v2_0)):
 
         ('schema', None),
         ('headers', {}),
+        ('description', None),
 
         # pyswagger only
         ('ref_obj', None),
@@ -176,6 +177,7 @@ class Operation(six.with_metaclass(FieldMeta, BaseObj_v2_0)):
         ('parameters', None),
         ('responses', None),
         ('deprecated', False),
+        ('summary', None),
         ('description', None),
         ('security', None),
 
