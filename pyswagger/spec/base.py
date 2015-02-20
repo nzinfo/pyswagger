@@ -201,7 +201,10 @@ class BaseObj(object):
         # handle fields
         for name, default in self.__swagger_fields__:
             setattr(self, self.get_private_name(name), ctx._obj.get(name, copy.copy(default)))
-
+        # deal the extensions
+        for attr_key in ctx._obj:
+            if attr_key[:2] == 'x-' and hasattr(self, "vendor"):
+                self.vendor[attr_key] = ctx._obj.get(attr_key)
         self._assign_parent(ctx)
 
     def _assign_parent(self, ctx):

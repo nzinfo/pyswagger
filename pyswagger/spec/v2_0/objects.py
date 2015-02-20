@@ -32,6 +32,9 @@ class BaseSchema(BaseObj_v2_0):
         ('pattern', None),
         ('uniqueItems', None),
         ('description', None),
+
+        # for vender property
+        ('vendor', {}),
     ]
 
     def __init__(self, ctx):
@@ -184,6 +187,8 @@ class Operation(six.with_metaclass(FieldMeta, BaseObj_v2_0)):
         # for pyswagger
         ('method', None),
         ('url', None),
+        # for vender property
+        ('vendor', {}),
     ]
 
     def __call__(self, **k):
